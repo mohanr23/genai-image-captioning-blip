@@ -32,7 +32,7 @@ Launch the application and verify captioning functionality.
 ### PROGRAM:
 
 ```
-import os
+ import os
 import io
 import IPython.display
 from PIL import Image
@@ -40,6 +40,7 @@ import base64
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv()) # read local .env file
 hf_api_key = os.environ['HF_API_KEY']
+
 # Helper functions
 import requests, json
 
@@ -57,9 +58,11 @@ def get_completion(inputs, parameters=None, ENDPOINT_URL=os.environ['HF_API_ITT_
                                 headers=headers,
                                 data=json.dumps(data))
     return json.loads(response.content.decode("utf-8"))
-image_url = "https://free-images.com/lg/ada9/seekarspitze_von_achenkirch.jpg"
+
+image_url = "https://free-images.com/md/e22d/lion_lion_head_male.jpg"
 display(IPython.display.Image(url=image_url))
 get_completion(image_url)
+
 import gradio as gr 
 
 def image_to_base64_str(pil_image):
@@ -80,18 +83,15 @@ demo = gr.Interface(fn=captioner,
                     title="Image Captioning with BLIP",
                     description="Caption any image using the BLIP model",
                     allow_flagging="never",
-                    examples=["halle_in_tirol_austria.jpg", "austria_hall_in_tirol.jpg"])
+                    examples=["tifer.jpg", "dragon.jpg", "god - kong.jpg"])
 
-demo.launch(share=True, server_port=int(os.environ['PORT2']))
+demo.launch(share=True, server_port=int(os.environ['PORT1']))
 
-    
+gr.close_all()
 ```
 
 ### OUTPUT:
 
-<img width="1429" height="930" alt="image" src="https://github.com/user-attachments/assets/1c702af4-cf11-4012-bf1f-599615d72be3" />
-
-<img width="1331" height="863" alt="image" src="https://github.com/user-attachments/assets/eb707dd8-42cb-40be-9f84-974fcff1bac1" />
 
 
 
