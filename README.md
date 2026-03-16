@@ -91,8 +91,7 @@ gr.close_all()
 ```
 
 ### OUTPUT:
-
-
+![image alt](https://github.com/mohanr23/genai-image-captioning-blip/blob/b8e522993c1c6c116478dc38b50611d7bc16c1ad/Screenshot%202026-03-16%20154758.png)
 
 
 ### RESULT:
